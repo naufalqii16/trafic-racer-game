@@ -166,8 +166,7 @@ function start(){
     }
 
     const selectedDifficulty = document.querySelector('input[name="gameDifficulty"]:checked');
-    const selectedSpeed = selectedDifficulty ? parseInt(selectedDifficulty.getAttribute('data-speed')) : 6; // Kecepatan default jika tidak ada yang dipilih
+    const selectedSpeed = selectedDifficulty ? parseInt(selectedDifficulty.getAttribute('data-speed')) : 10; // Kecepatan default jika tidak ada yang dipilih
 
     player.speed = selectedSpeed;
 }
-
