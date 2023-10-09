@@ -76,7 +76,7 @@ function gamePlay(){
         moveEnemy(car);
 
         if(keys.ArrowUp && player.y > (road.top + 5)){player.y -= player.speed}
-        if(keys.ArrowDown && player.y < (road.bottom -330)){player.y += player.speed}
+        if(keys.ArrowDown && player.y < (road.bottom -110)){player.y += player.speed}
         if(keys.ArrowLeft && player.x > 6){player.x -= player.speed}
         if(keys.ArrowRight && player.x < (road.width - 58.5)){player.x += player.speed}
 
