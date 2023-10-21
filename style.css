@@ -47,10 +47,57 @@ h2 {
     font-family: monospace;
 }
 
-.colorButtons, .levelButtons {
+.colorButtons, .levelButtons{
     display: flex;
     justify-content: center;
 }
+
+#backToHomeButton {
+    /* Atur posisi vertikal sesuai kebutuhan Anda */
+    left: 648px; /* Atur posisi horizontal sesuai kebutuhan Anda */
+    /* Tambahan gaya lainnya */
+}
+
+#restartButton {
+    position: absolute; /* Atur posisi vertikal sesuai kebutuhan Anda */
+    left: 510px; /* Atur posisi horizontal sesuai kebutuhan Anda */
+}
+
+#backToHomeButton, #restartButton {
+    position: absolute;
+    top: 50%; /* Atur posisi vertikal sesuai kebutuhan Anda */
+    background: #3498db; /* Warna latar belakang */
+    color: #fff; /* Warna teks */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    font-weight: bold;
+}
+
+#backToHomeButton:hover, #restartButton:hover {
+    background: green; /* Warna latar belakang saat digulirkan */
+    transform: scale(1.1); /* Efek scaling saat digulirkan */
+}
+
+#backToHomeButton:focus, #restartButton:focus {
+    outline: none; /* Hilangkan focus outline yang default */
+}
+
+#scoreContainer {
+    background: white;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    margin-top: -100px;
+    teks-transform: none;
+}
+
+
+
+
 
 
 
@@ -120,3 +167,5 @@ h2 {
     /* background-size: 100% 100; */
 
 }
+
+

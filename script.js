@@ -5,8 +5,6 @@ const startScreen = document.querySelector(".startButton");
 const chooseColor = document.querySelectorAll(".colorButtons label");
 const chooseLevel = document.querySelectorAll(".levelButtons label");
 
-
-
 let player = {score:0, speed:6};
 let keys = {ArrowUp:false, ArrowDown:false, ArrowLeft:false, ArrowRight:false};
 
@@ -44,7 +42,24 @@ function moveLines(){
 }
 function endGame(){
     player.start = false;
-    startScreen.classList.remove("hide");
+    // startScreen.classList.remove("hide");
+
+    const backToHomeButton = document.getElementById("backToHomeButton");
+    const restartButton = document.getElementById("restartButton");
+    const scoreContainer = document.getElementById("scoreContainer");
+
+    scoreContainer.classList.remove("hide");
+    backToHomeButton.classList.remove("hide");
+    restartButton.classList.remove("hide");
+
+    scoreContainer.innerHTML = "Game Over<br>Your final score is " + player.score;
+
+    backToHomeButton.addEventListener("click", () => {
+        window.location.href = "index.html"; // Gantilah dengan URL yang sesuai.
+    });
+
+    restartButton.addEventListener("click", start) ;
+
 }
 
 
@@ -54,11 +69,12 @@ function moveEnemy(car){
         if(isCollide(car, item)){
             // console.log("HIT");
             endGame();
-            startScreen.innerHTML="Game Over <br> Your final score is " + player.score + "<br> Press here to restart the game";
+            
+            // startScreen.innerHTML="Game Over <br> Your final score is " + player.score;
         }
         if(item.y >= 750){
             item.y = -300;
-            item.style.left = Math.floor(Math.random()*350) + "px";
+            item.style.left = Math.floor(Math.random()*580) + "px";
         }
 
         item.y += player.speed;
@@ -91,9 +107,13 @@ function gamePlay(){
 
 function start(){
     startScreen.classList.add("hide");
+    scoreContainer.classList.add("hide");
+    backToHomeButton.classList.add("hide");
+    restartButton.classList.add("hide");
 
     const topSection = document.querySelector(".topSection");
     const bottomSection = document.querySelector(".bottomSection");
+    
     topSection.style.display = "none";
     bottomSection.style.display = "none";
 
@@ -104,10 +124,6 @@ function start(){
         button.style.display = "none";
     });
 
-
-    
-    
-    // score.classList.remove("hide");
     gameArena.innerHTML = "";
     player.start = true;
     player.score = 0;
@@ -170,3 +186,5 @@ function start(){
 
     player.speed = selectedSpeed;
 }
+
+
