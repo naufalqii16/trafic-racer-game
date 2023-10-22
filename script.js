@@ -4,12 +4,26 @@ const score = document.querySelector(".score");
 const startScreen = document.querySelector(".startButton");
 const chooseColor = document.querySelectorAll(".colorButtons label");
 const chooseLevel = document.querySelectorAll(".levelButtons label");
+const nameField = document.getElementById('nameField');
+const emailField = document.getElementById('emailField');
 
 let player = {score:0, speed:6};
 let keys = {ArrowUp:false, ArrowDown:false, ArrowLeft:false, ArrowRight:false};
 
 document.addEventListener("keydown", keyDown);
 document.addEventListener("keyup", keyUp);
+
+nameField.addEventListener('input', function (event) {
+    const nameValue = event.target.value;
+    console.log(event.target.value)
+    // Do something with the name value, if needed
+});
+
+// Add an event listener for the email field
+emailField.addEventListener('input', function (event) {
+    const emailValue = event.target.value;
+    // Do something with the email value, if needed
+});
 
 startScreen.addEventListener("click", start);
 
@@ -20,13 +34,22 @@ function isCollide(a, b){
 }
 
 function keyDown(e){
-    e.preventDefault();
-    keys[e.key] = true;
+    //if not arrow return
+    if(e.key == "ArrowUp" || e.key == "ArrowDown" || e.key == "ArrowLeft" || e.key == "ArrowRight"){
+        e.preventDefault();
+        keys[e.key] = true;
+    } else {
+        return;
+    }
 }
 
 function keyUp(e){
-    e.preventDefault();
-    keys[e.key] = false;
+    if(e.key == "ArrowUp" || e.key == "ArrowDown" || e.key == "ArrowLeft" || e.key == "ArrowRight"){
+        e.preventDefault();
+        keys[e.key] = true;
+    } else {
+        return;
+    }
 }
 
 function moveLines(){
@@ -131,9 +154,6 @@ function start(){
 
     window.requestAnimationFrame(gamePlay);
     
-    
-    // console.log("top position "+car.offsetTop);
-    // console.log("left position "+car.offsetLeft);
     
     for(x=0; x<5; x++){
         let roadLine=document.createElement("div");
