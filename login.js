@@ -35,6 +35,6 @@ function submitForm(e) {
         });
 }
 
-var myform = document.getElementById("login-form");
+var myform = document.getElementById("loginForm");
 
 myform.addEventListener("submit", submitForm);
