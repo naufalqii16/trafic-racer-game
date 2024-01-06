@@ -13,17 +13,6 @@ let keys = {ArrowUp:false, ArrowDown:false, ArrowLeft:false, ArrowRight:false};
 document.addEventListener("keydown", keyDown);
 document.addEventListener("keyup", keyUp);
 
-nameField.addEventListener('input', function (event) {
-    const nameValue = event.target.value;
-    console.log(event.target.value)
-    // Do something with the name value, if needed
-});
-
-// Add an event listener for the email field
-emailField.addEventListener('input', function (event) {
-    const emailValue = event.target.value;
-    // Do something with the email value, if needed
-});
 
 startScreen.addEventListener("click", start);
 
@@ -46,7 +35,7 @@ function keyDown(e){
 function keyUp(e){
     if(e.key == "ArrowUp" || e.key == "ArrowDown" || e.key == "ArrowLeft" || e.key == "ArrowRight"){
         e.preventDefault();
-        keys[e.key] = true;
+        keys[e.key] = false;
     } else {
         return;
     }
