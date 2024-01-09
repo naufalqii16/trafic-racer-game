@@ -1,3 +1,3 @@
 # trafic-racer-game
 
-link game: [](https://trafic-racer-game.vercel.app/game.html)
+link game: [game](https://trafic-racer-game.vercel.app/game.html)
